@@ -6,7 +6,8 @@
 // - Il computer deve generare 16 numeri casuali e inserirli in un array, 
 //   in base al range della difficoltà prescelta 
 //   (se abbiamo scelto facile l'array conterrà numeri casuali da 1 a 100, 
-//   se invece abbiamo scelto difficile l'array dovrà contenerne da 1 a 49): questi rappreseranno le posizioni delle nostre bombe :bomba:.
+//   se invece abbiamo scelto difficile l'array dovrà contenerne da 1 a 49): 
+//   questi rappreseranno le posizioni delle nostre bombe :bomba:.
 // - Attenzione: nella stessa cella può essere posizionata al massimo una bomba, 
 //   perciò nell’array delle bombe non potranno esserci due numeri uguali.
 // - In seguito l'utente clicca su una cella: se il numero è presente nella lista dei numeri generati - 
@@ -77,13 +78,15 @@ buttonElement.addEventListener('click', function(){
                 this.classList.add("active");
                 // console.log(this.innerText);
                 const numberPressed = this.innerText;
+
+                // converto il valore avuto tramite "this" in numero
                 const convertedNumber = parseInt(numberPressed);
                 console.log(convertedNumber);
 
 
                 //controlliamo se il numero corrispondente alla casella premuta corrisponde al numero presente nell'array 
                 if (arrayrandomNumbers.includes(convertedNumber)) {
-
+                    this.classList.add("bomb");
                     console.log("Il numero è presente nell'array.");
 
                 } else {

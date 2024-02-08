@@ -32,6 +32,10 @@ body{
     border: inset 2px #A8A196;
 }
 
+.bomb{
+    background-color: red;
+}
+
 #grid.easy .square{
     width: calc(100% / 10);
     height: calc(100% / 10);
