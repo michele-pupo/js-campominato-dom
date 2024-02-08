@@ -75,15 +75,30 @@ buttonElement.addEventListener('click', function(){
                 // per sapere quale elemento è stato cliccato useremo il "this"
                 // console.log(this);
                 this.classList.add("active");
-                console.log(this.innerText);
-            })
+                // console.log(this.innerText);
+                let numberPressed = this.innerText;
+                // console.log(numberPressed);
+
+
+                //controlliamo se il numero corrispondente alla casella premuta corrisponde al numero presente nell'array 
+                if (arrayrandomNumbers.includes(numberPressed)) {
+
+                    console.log("Il numero è presente nell'array.");
+
+                } else {
+
+                    console.log("Il numero non è presente nell'array.");
+                }
+            }
+            )
 
             gridElement.append(newElement);
         }
 
+
         // funzione per genarare un array di 16 numeri casuali da 1 a "scelta utente in base al grado di difficoltà (100,81,49)"
-        function randomNumberTo100() {
-            const randomNumbers = [];
+        function randomNumber() {
+            let randomNumbers = [];
 
             // creo un ciclo while per riempire l'array con 16 elementi
             while (randomNumbers.length < 16) {
@@ -98,7 +113,7 @@ buttonElement.addEventListener('click', function(){
             return randomNumbers;
             }
         
-            const arrayrandomNumbersto100 = randomNumberTo100();
-            console.log(arrayrandomNumbersto100);
+            const arrayrandomNumbers = randomNumber();
+            console.log(arrayrandomNumbers);
     }
 )
