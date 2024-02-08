@@ -34,6 +34,9 @@ buttonElement.addEventListener('click', function(){
         // Aggiungiamo un flag per indicare se il gioco è terminato
         let gameEnded = false;
 
+        // Aggiungiamo una variabile per tenere traccia del numero di mosse fatte prima della scoperta di una bomba
+        let movesCount = 0;
+
         // cambio la visualizzazione della grid al click   
         document.querySelector("#grid").style.display = "flex";
 
@@ -79,6 +82,12 @@ buttonElement.addEventListener('click', function(){
                 // Verifica se il gioco è già terminato
                 if (gameEnded) return;
 
+                // incrementiamo il conteggio delle mosse ogni volta che l'utente fa clic su una casella senza bomba
+                movesCount++;
+
+                // Stampiamo il numero di mosse una volta che una bomba è stata scoperta
+                console.log("Numero di mosse effettuate:", movesCount);
+                document.querySelector("#mosse").innerHTML = movesCount;
                 // per sapere quale elemento è stato cliccato useremo il "this"
                 // console.log(this);
                 this.classList.add("active");
@@ -102,6 +111,7 @@ buttonElement.addEventListener('click', function(){
                         if (arrayrandomNumbers.includes(boxNumber)) {
                             square.classList.add('bomb');
                         }
+
 
                         // Impedisce ulteriori clic se il gioco è terminato
                         gameEnded = true;
