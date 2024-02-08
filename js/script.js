@@ -37,6 +37,7 @@ buttonElement.addEventListener('click', function(){
         // dichiaro un array vuoto per tenere traccia dei numeri delle caselle già premuti
         let clickedNumbers = [];
 
+
         // dichiaro una variabile a 0 per contare le mosse effettuate
         let movesCount = 0;
 
@@ -86,15 +87,16 @@ buttonElement.addEventListener('click', function(){
                 // verifico se il gioco è già terminato
                 if (gameEnded) return;
 
-                // Dentro l'evento click, dopo la dichiarazione di movesCount ma prima di incrementarlo
+                // numero della casella premuta
                 const numberPressed = parseInt(this.innerText);
 
                 // verifico se il numero della casella è già stato premuto e ne caso lo aggiungo all'array vuoto per contare il numero di mosse
-                if (!clickedNumbers.includes(numberPressed)) {
+                if (! clickedNumbers.includes(numberPressed)) {
 
                 //  il conteggio delle mosse aumenta solo se il numero della casella non è stato premuto in precedenza
                 movesCount++; 
                 } 
+                console.log(movesCount)
 
                 // stampo in pagina il numero di mosse effettuate
                 document.querySelector("#moves").innerHTML = movesCount;
