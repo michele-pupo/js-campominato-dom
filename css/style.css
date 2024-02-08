@@ -12,8 +12,8 @@ body{
     display: flex;
     flex-flow: row wrap;
     align-items: flex-start;
-    width: 1000px;
-    height: 1000px;
+    width: 600px;
+    height: 600px;
     border: groove 20px #7D7463;
     user-select: none;
 }
@@ -34,10 +34,10 @@ body{
 }
 
 .bomb{
-    background-color: red;
+    border: inset 2px #A8A196;
     background-image: url(../img/bomb.jpg);
     background-size: cover;
-    color: black;
+    color: transparent;
 }
 
 #grid.easy .square{
@@ -55,7 +55,7 @@ body{
     height: calc(100% / 7);
 }
 
-#mosse{
-    font-size: 50px;
+#moves{
+    font-size: 100px;
     color: red;
 }

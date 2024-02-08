@@ -34,11 +34,15 @@ buttonElement.addEventListener('click', function(){
         // Aggiungiamo un flag per indicare se il gioco è terminato
         let gameEnded = false;
 
-        // Aggiungiamo una variabile per tenere traccia del numero di mosse fatte prima della scoperta di una bomba
+        // dichiaro un array vuoto per tenere traccia dei numeri delle caselle già premuti
+        let clickedNumbers = [];
+
+        // dichiaro una variabile a 0 per contare le mosse effettuate
         let movesCount = 0;
 
-        // cambio la visualizzazione della grid al click   
+        // cambio la visualizzazione della grid e del punteggio al click   
         document.querySelector("#grid").style.display = "flex";
+        document.querySelector("#score").style.display = "flex";
 
         //creo una variabile che prenda il grado di difficoltà scelto dall'utente 
         const choiceDifficulty = document.querySelector("#difficulty-select");
@@ -79,20 +83,26 @@ buttonElement.addEventListener('click', function(){
             newElement.addEventListener("click", function() {
                 // console.log("click");
 
-                // Verifica se il gioco è già terminato
+                // verifico se il gioco è già terminato
                 if (gameEnded) return;
 
-                // incrementiamo il conteggio delle mosse ogni volta che l'utente fa clic su una casella senza bomba
-                movesCount++;
+                // Dentro l'evento click, dopo la dichiarazione di movesCount ma prima di incrementarlo
+                const numberPressed = parseInt(this.innerText);
 
-                // Stampiamo il numero di mosse una volta che una bomba è stata scoperta
-                console.log("Numero di mosse effettuate:", movesCount);
-                document.querySelector("#mosse").innerHTML = movesCount;
+                // verifico se il numero della casella è già stato premuto e ne caso lo aggiungo all'array vuoto per contare il numero di mosse
+                if (!clickedNumbers.includes(numberPressed)) {
+
+                //  il conteggio delle mosse aumenta solo se il numero della casella non è stato premuto in precedenza
+                movesCount++; 
+                } 
+
+                // stampo in pagina il numero di mosse effettuate
+                document.querySelector("#moves").innerHTML = movesCount;
                 // per sapere quale elemento è stato cliccato useremo il "this"
                 // console.log(this);
                 this.classList.add("active");
                 // console.log(this.innerText);
-                const numberPressed = this.innerText;
+                
 
                 // converto il valore avuto tramite "this" in numero
                 const convertedNumber = parseInt(numberPressed);
@@ -112,9 +122,11 @@ buttonElement.addEventListener('click', function(){
                             square.classList.add('bomb');
                         }
 
-
                         // Impedisce ulteriori clic se il gioco è terminato
                         gameEnded = true;
+
+                        // quando si preme su una bomba il conteggio delle mosse si azzera
+                        document.querySelector("#moves").innerHTML = `il tuo record è ${movesCount}` ;
                     });
 
                     } else {
