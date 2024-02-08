@@ -87,12 +87,21 @@ buttonElement.addEventListener('click', function(){
                 //controlliamo se il numero corrispondente alla casella premuta corrisponde al numero presente nell'array 
                 if (arrayrandomNumbers.includes(convertedNumber)) {
                     this.classList.add("bomb");
+                    
                     console.log("Il numero è presente nell'array.");
 
-                } else {
+                    // Rivelare tutte le altre bombe alla scoperta della prima tramite il metodo "forEach"
+                    gridElement.querySelectorAll('.square').forEach(square => {
+                        const boxNumber = parseInt(square.innerText);
+                        if (arrayrandomNumbers.includes(boxNumber)) {
+                            square.classList.add('bomb');
+                        }
+                    });
 
-                    console.log("Il numero non è presente nell'array.");
-                }
+                    } else {
+
+                         console.log("Il numero non è presente nell'array.");
+                    }
             }
             )
 

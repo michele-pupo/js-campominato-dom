@@ -23,17 +23,21 @@ body{
     justify-content: center;
     align-items: center;
     background-color: #A8A196;;
-    color: white;
+    color: #A8A196;
     border: outset 4px black
 }
 
 .active{
     background-color: #D8D8D8;;
     border: inset 2px #A8A196;
+    color: #D8D8D8;
 }
 
 .bomb{
     background-color: red;
+    background-image: url(../img/bomb.jpg);
+    background-size: cover;
+    color: black;
 }
 
 #grid.easy .square{
