@@ -31,6 +31,9 @@ const buttonElement = document.querySelector("#generate-grid");
 // al click del pulsante la griglia viene generata in base alla difficoltà scelta
 buttonElement.addEventListener('click', function(){
 
+        // Aggiungiamo un flag per indicare se il gioco è terminato
+        let gameEnded = false;
+
         // cambio la visualizzazione della grid al click   
         document.querySelector("#grid").style.display = "flex";
 
@@ -73,6 +76,9 @@ buttonElement.addEventListener('click', function(){
             newElement.addEventListener("click", function() {
                 // console.log("click");
 
+                // Verifica se il gioco è già terminato
+                if (gameEnded) return;
+
                 // per sapere quale elemento è stato cliccato useremo il "this"
                 // console.log(this);
                 this.classList.add("active");
@@ -96,6 +102,9 @@ buttonElement.addEventListener('click', function(){
                         if (arrayrandomNumbers.includes(boxNumber)) {
                             square.classList.add('bomb');
                         }
+
+                        // Impedisce ulteriori clic se il gioco è terminato
+                        gameEnded = true;
                     });
 
                     } else {
@@ -105,6 +114,7 @@ buttonElement.addEventListener('click', function(){
             }
             )
 
+            // "appendiamo" gli elementi creati
             gridElement.append(newElement);
         }
 
