@@ -76,12 +76,13 @@ buttonElement.addEventListener('click', function(){
                 // console.log(this);
                 this.classList.add("active");
                 // console.log(this.innerText);
-                let numberPressed = this.innerText;
-                // console.log(numberPressed);
+                const numberPressed = this.innerText;
+                const convertedNumber = parseInt(numberPressed);
+                console.log(convertedNumber);
 
 
                 //controlliamo se il numero corrispondente alla casella premuta corrisponde al numero presente nell'array 
-                if (arrayrandomNumbers.includes(numberPressed)) {
+                if (arrayrandomNumbers.includes(convertedNumber)) {
 
                     console.log("Il numero è presente nell'array.");
 
