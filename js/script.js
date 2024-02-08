@@ -1,15 +1,28 @@
 // Consegna
-// - L'utente clicca su un bottone che genererà una griglia di gioco quadrata.
-// - Ogni cella ha un numero progressivo, da 1 a 100.
-// - Ci saranno quindi 10 caselle per ognuna delle 10 righe.
-// - Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
-// - Potete realizzare lo stile che volete, sin quando tutto è leggibile con facilità :muscolo::carnagione-2:
+// - Copiamo la griglia fatta ieri nella nuova repo e aggiungiamo la logica del gioco 
+//   (attenzione: non bisogna copiare tutta la cartella dell'esercizio ma solo l'index.html, 
+//   e le cartelle js/ css/ con i relativi script e fogli di stile, 
+//   per evitare problemi con l'inizializzazione di git).
+// - Il computer deve generare 16 numeri casuali e inserirli in un array, 
+//   in base al range della difficoltà prescelta 
+//   (se abbiamo scelto facile l'array conterrà numeri casuali da 1 a 100, 
+//   se invece abbiamo scelto difficile l'array dovrà contenerne da 1 a 49): questi rappreseranno le posizioni delle nostre bombe :bomba:.
+// - Attenzione: nella stessa cella può essere posizionata al massimo una bomba, 
+//   perciò nell’array delle bombe non potranno esserci due numeri uguali.
+// - In seguito l'utente clicca su una cella: se il numero è presente nella lista dei numeri generati - 
+//   abbiamo calpestato una bomba - la cella si colora di rosso e la partita termina. 
+//   Altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
+// - La partita termina quando il giocatore clicca su una bomba o quando raggiunge 
+//   il numero massimo possibile di numeri consentiti (ovvero quando ha rivelato tutte le celle che non sono bombe).
+// - Al termine della partita il software deve comunicare il punteggio, 
+//   cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba.
 
-// Bonus
-// Aggiungere una select accanto al bottone di generazione, che fornisca una scelta tra tre diversi livelli di difficoltà:
-// - con difficoltà 1 => 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
-// - con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
-// - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
+// BONUS 1
+// - Quando si clicca su una bomba e finisce la partita, evitare che si possa cliccare su altre celle.
+
+// BONUS 2
+// - Quando si clicca su una bomba e finisce la partita, il software scopre tutte le bombe nascoste.
+
 
 // creo la costante per il button
 const buttonElement = document.querySelector("#generate-grid");
@@ -21,10 +34,7 @@ buttonElement.addEventListener('click', function(){
         document.querySelector("#grid").style.display = "flex";
 
         //creo una variabile che prenda il grado di difficoltà scelto dall'utente 
-        const choiceDifficulty = parseInt(document.getElementById("difficulty-select").value);
-
-        // creo una costante che prenda il valore della difficoltà e lo moltiplichi per se stesso per generare la griglia scelta
-        const gridSize = choiceDifficulty * choiceDifficulty;
+        const choiceDifficulty = document.querySelector("#difficulty-select");
 
         // creiamo la griglia con un ciclo for
         const gridElement = document.querySelector("#grid");
@@ -34,16 +44,18 @@ buttonElement.addEventListener('click', function(){
         gridElement.innerHTML = "";
 
          // Aggiungo una classe per l'impaginazione in base alla dimensione scelta
-         if (choiceDifficulty === 7) {
-            gridElement.classList.add("small-grid");
-            gridElement.classList.remove("medium-grid", "#grid");
-        } else if (choiceDifficulty === 9) {
-            gridElement.classList.add("medium-grid");
-            gridElement.classList.remove("small-grid", "large-grid");
-        } else if (choiceDifficulty === 10) {
-            gridElement.classList.add("#grid");
-            gridElement.classList.remove("small-grid", "medium-grid");
+        // cambio il numero di celle da creare in base alla difficoltà
+        if(choiceDifficulty.value == "easy") {
+            gridSize = 100;
+        } else if (choiceDifficulty.value == "medium") {
+            gridSize = 81;
+        } else {
+            gridSize = 49;
         }
+
+        // imposto la classe della griglia in base alla difficoltà
+        // questa verrà gestita dal css per ridimensionare correttamente i quadrattini
+        gridElement.className = choiceDifficulty.value;
 
         // creiamo la griglia scelta dall'utente
         for(let i = 0; i < gridSize; i++){
@@ -62,11 +74,31 @@ buttonElement.addEventListener('click', function(){
 
                 // per sapere quale elemento è stato cliccato useremo il "this"
                 // console.log(this);
-                this.classList.toggle("active");
+                this.classList.add("active");
                 console.log(this.innerText);
             })
 
             gridElement.append(newElement);
         }
+
+        // funzione per genarare un array di 16 numeri casuali da 1 a "scelta utente in base al grado di difficoltà (100,81,49)"
+        function randomNumberTo100() {
+            const randomNumbers = [];
+
+            // creo un ciclo while per riempire l'array con 16 elementi
+            while (randomNumbers.length < 16) {
+            const randomNumber = Math.floor(Math.random() * gridSize + 1);
+            
+
+                // inserisci il numero solo se non è già presente nell'array
+                if ( ! randomNumbers.includes(randomNumber)){
+                    randomNumbers.push(randomNumber);
+                }
+            }
+            return randomNumbers;
+            }
+        
+            const arrayrandomNumbersto100 = randomNumberTo100();
+            console.log(arrayrandomNumbersto100);
     }
 )

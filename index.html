@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Griglia Campo Minato</title>
+    <title>Campo Minato</title>
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -19,9 +19,9 @@
                 <div>
                     <label for="difficulty-select">Seleziona la difficoltà:</label>
                     <select id="difficulty-select">
-                        <option value="10">Facile</option>
-                        <option value="9">Medio</option>
-                        <option value="7">Difficile</option>
+                        <option value="easy">Facile</option>
+                        <option value="medium">Medio</option>
+                        <option value="hard">Difficile</option>
                     </select>
                 </div>
                 <div class="button pointer-event">
@@ -30,10 +30,9 @@
             </div>
         </div>
     </div>
-    <div  class="container m-auto mt-5 d-flex justify-content-center">
-        <div style="display: none;" id="grid" class="row col-6">
-            <div class="square col">
-            </div>
+    <div class="my_container">
+        <div style="display: none;" id="grid">
+            
         </div>
     </div>
     

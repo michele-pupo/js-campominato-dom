@@ -2,9 +2,23 @@ body{
     background-color: #EAD196;
 }
 
+.my_container{
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+#grid{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    width: 1000px;
+    height: 1000px;
+    border: groove 20px #7D7463;
+    user-select: none;
+}
+
 .square{
-    width: calc(100% / 10);
-    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,32 +27,22 @@ body{
     border: outset 4px black
 }
 
-#grid{
-    display: flex;
-    flex-flow: row wrap;
-    border: groove 20px #7D7463;
-    user-select: none;
-}
-
 .active{
     background-color: #D8D8D8;;
     border: inset 2px #A8A196;
 }
 
-.small-grid {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #A8A196;;
-    color: white;
-    border: outset 4px black
+#grid.easy .square{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
 }
 
-.medium-grid {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #A8A196;;
-    color: white;
-    border: outset 4px black
+#grid.medium .square{
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+#grid.hard .square{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
 }
