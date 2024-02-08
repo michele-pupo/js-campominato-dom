@@ -91,15 +91,12 @@ buttonElement.addEventListener('click', function(){
                 const numberPressed = parseInt(this.innerText);
 
                 // verifico se il numero della casella è già stato premuto e ne caso lo aggiungo all'array vuoto per contare il numero di mosse
-                if (! clickedNumbers.includes(numberPressed)) {
-
-                //  il conteggio delle mosse aumenta solo se il numero della casella non è stato premuto in precedenza
-                movesCount++; 
-                } 
-                console.log(movesCount)
+                if ( ! clickedNumbers.includes(numberPressed)){
+                    clickedNumbers.push(numberPressed);
+                }    
 
                 // stampo in pagina il numero di mosse effettuate
-                document.querySelector("#moves").innerHTML = movesCount;
+                document.querySelector("#moves").innerHTML = clickedNumbers.length;
                 // per sapere quale elemento è stato cliccato useremo il "this"
                 // console.log(this);
                 this.classList.add("active");
@@ -128,7 +125,8 @@ buttonElement.addEventListener('click', function(){
                         gameEnded = true;
 
                         // quando si preme su una bomba il conteggio delle mosse si azzera
-                        document.querySelector("#moves").innerHTML = `il tuo record è ${movesCount}` ;
+                        document.querySelector("#moves").innerHTML = `il tuo record è ${clickedNumbers.length}`;
+                        
                     });
 
                     } else {
