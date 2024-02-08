@@ -37,13 +37,10 @@ buttonElement.addEventListener('click', function(){
         // dichiaro un array vuoto per tenere traccia dei numeri delle caselle già premuti
         let clickedNumbers = [];
 
-
-        // dichiaro una variabile a 0 per contare le mosse effettuate
-        let movesCount = 0;
-
         // cambio la visualizzazione della grid e del punteggio al click   
         document.querySelector("#grid").style.display = "flex";
         document.querySelector("#moves").style.display = "flex";
+        document.querySelector("#score").style.display = "flex";
 
         //creo una variabile che prenda il grado di difficoltà scelto dall'utente 
         const choiceDifficulty = document.querySelector("#difficulty-select");
@@ -127,6 +124,7 @@ buttonElement.addEventListener('click', function(){
                         // quando si preme su una bomba il conteggio delle mosse si azzera
                         document.querySelector("#moves").innerHTML = `il tuo record è ${clickedNumbers.length}`;
                         
+                        document.querySelector("#record-count").innerHTML = `${clickedNumbers.length}`;
                     });
 
                     } else {

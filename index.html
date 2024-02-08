@@ -17,7 +17,7 @@
             <h1 class="display-1 fw-bold text-info text-uppercase">Campo minato</h1>
             <div class="m-auto mb-3 d-flex justify-content-between align-items-baseline gap-5">
                 <div>
-                    <label for="difficulty-select" class="fs-4 text-danger">Seleziona la difficoltà:</label>
+                    <label for="difficulty-select" class="fs-4 text-danger ms-5">Seleziona la difficoltà:</label>
                     <select id="difficulty-select">
                         <option value="easy">Facile</option>
                         <option value="medium">Medio</option>
@@ -30,13 +30,21 @@
             </div>
         </div>
     </div>
-    <div class="my_container d-flex justify-content-center">
-        <div style="display: none;" id="grid">
-            
+    <div class="d-flex justify-content-center gap-4">
+        <div class="mt-5 text-uppercase">
+            <h1 style="display: none;" id="score" class="fs-1">punteggio<br>precedente</h1>
+            <span id="record-count" class="d-flex justify-content-center display-2 fw-bolder"></span>
         </div>
-    </div>
-    <div id="score" class="d-flex justify-content-center">
-        <span style="display: none;" id="moves" class="display-3 text-uppercase fw-bold mt-4"></span>
+        <div>
+            <div class="my_container d-flex justify-content-center">
+                <div style="display: none;" id="grid">
+                    
+                </div>
+            </div>
+            <div id="score" class="d-flex justify-content-center">
+                <span style="display: none;" id="moves" class="display-3 text-uppercase fw-bold mt-4"></span>
+            </div>
+        </div>
     </div>
     
 
