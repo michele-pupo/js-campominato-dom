@@ -17,7 +17,7 @@
             <h1 class="display-1 fw-bold text-info text-uppercase">Campo minato</h1>
             <div class="m-auto mb-3 d-flex justify-content-between align-items-baseline gap-5">
                 <div>
-                    <label for="difficulty-select">Seleziona la difficoltà:</label>
+                    <label for="difficulty-select" class="fs-4 text-danger">Seleziona la difficoltà:</label>
                     <select id="difficulty-select">
                         <option value="easy">Facile</option>
                         <option value="medium">Medio</option>
@@ -25,7 +25,7 @@
                     </select>
                 </div>
                 <div class="button pointer-event">
-                    <button id="generate-grid">Genera griglia</button>
+                    <button id="generate-grid" class="fs-3 rounded-2">Genera griglia</button>
                 </div>
             </div>
         </div>
@@ -35,8 +35,8 @@
             
         </div>
     </div>
-    <div style="display: none;" id="score" class="d-flex justify-content-center">
-        <span id="moves" class="display-3 text-uppercase fw-bold mt-4"></span>
+    <div id="score" class="d-flex justify-content-center">
+        <span style="display: none;" id="moves" class="display-3 text-uppercase fw-bold mt-4"></span>
     </div>
     
 

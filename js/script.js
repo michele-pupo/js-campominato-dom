@@ -43,7 +43,7 @@ buttonElement.addEventListener('click', function(){
 
         // cambio la visualizzazione della grid e del punteggio al click   
         document.querySelector("#grid").style.display = "flex";
-        document.querySelector("#score").style.display = "flex";
+        document.querySelector("#moves").style.display = "flex";
 
         //creo una variabile che prenda il grado di difficoltà scelto dall'utente 
         const choiceDifficulty = document.querySelector("#difficulty-select");
