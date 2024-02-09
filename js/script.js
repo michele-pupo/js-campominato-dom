@@ -99,6 +99,8 @@ buttonElement.addEventListener('click', function(){
                 this.classList.add("active");
                 // console.log(this.innerText);
                 
+                let clickedNumbersrecord = clickedNumbers.length;
+                console.log(clickedNumbersrecord);
 
                 // converto il valore avuto tramite "this" in numero
                 const convertedNumber = parseInt(numberPressed);
