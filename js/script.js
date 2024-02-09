@@ -141,7 +141,7 @@ buttonElement.addEventListener('click', function(){
         }
 
 
-        // funzione per genarare un array di 16 numeri casuali da 1 a "scelta utente in base al grado di difficoltà (100,81,49)"
+        // funzione per genarare un array di 16 numeri "diversi" casuali da 1 a "scelta utente in base al grado di difficoltà (100,81,49)"
         function randomNumber() {
             let randomNumbers = [];
 

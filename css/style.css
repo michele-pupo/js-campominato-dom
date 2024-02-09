@@ -38,6 +38,7 @@ body{
     background-image: url(../img/bomb.jpg);
     background-size: cover;
     color: transparent;
+    animation: bombFloat 2s ease infinite;
 }
 
 #grid.easy .square{
@@ -65,4 +66,19 @@ body{
 
 #score{
     color: #F6D776;
+}
+
+@keyframes bombFloat {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+
+    }
 }
